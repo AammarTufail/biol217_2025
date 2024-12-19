@@ -116,12 +116,19 @@ bowtie2 --very-fast -x contigs.anvio.fa.index -1 /PATH/TO/sample1_R1_clean.fastq
 or in a loop from your fastq clean folder: 
 
 ```ssh
-module load bowtie2
 cd /PATH/TO/FASTP
 for i in `ls *_R1.fastq.gz`;
 do
     second=`echo ${i} | sed 's/_R1/_R2/g'`
 bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
+done
+
+
+OR
+
+for i in $*_R1.fastq.gz; do
+  base=$(basename "$i" _R1.fastq.gz)
+  bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${base}_R2.fastq.gz -S /PATH/TO/4_mapping/"${base}".sam 
 done
 ```
 </details>
@@ -249,7 +256,10 @@ or in a loop:
 
 ```ssh
 mkdir /PATH/TO/profiling/
-for i in `ls *.sorted.bam | cut -d "." -f 1`; do anvi-profile -i "$i".bam.sorted.bam -c contigs.db -o /PATH/TO/profiling/”$i”; done
+                for i in $mapping_out/*.sorted.bam; do
+                    base=$(basename "$i" .sam.bam.sorted.bam)
+                    anvi-profile -i "$i" -c $mapping_out/contigs.db -o $profiling_out/${base}
+                done
 ```
 </details>
 
