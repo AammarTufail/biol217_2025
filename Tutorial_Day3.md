@@ -305,18 +305,18 @@ Here you are going to use two binners [Metabat2](https://bitbucket.org/berkeleyl
 #### Binning with Metabat2
 
 ```ssh
-anvi-cluster-contigs -p ? -c ? -C METABAT --driver metabat2 --just-do-it --log-file log-metabat2
+anvi-cluster-contigs -p ? -c ? -C METABAT2 --driver metabat2 --just-do-it --log-file log-metabat2
 
-anvi-summarize -p /PATH/TO/merged_profiles/? -c ? -o SUMMARY_METABAT -C ?
+anvi-summarize -p /PATH/TO/merged_profiles/? -c ? -o SUMMARY_METABAT2 -C ?
 ```
 
 <details><summary><b>Finished commands</b></summary>
 
 
 ```ssh
-anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C METABAT --driver metabat2 --just-do-it --log-file log-metabat2
+anvi-cluster-contigs -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C METABAT2 --driver metabat2 --just-do-it --log-file log-metabat2
 
-anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_METABAT -C METABAT
+anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -o SUMMARY_METABAT2 -C METABAT2
 ```
 </details>
 
