@@ -10,7 +10,6 @@ cd /work_beegfs/sunam###/Metagenomics
 
 ## Bin refinement
 
-$\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 We focus only on the ARCHAEA BINS!!
 
 Use anvi-summarize. *``Anvi-summarize`` lets you look at a comprehensive overview of your collection and its many statistics that anvi’o has calculated.
@@ -20,12 +19,12 @@ It will create a folder called SUMMARY that contains many different summary file
 This command will also create ``.fa`` files of your bins, needed for further analysis using other programs.
 
 $\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
-Do not forget to activate the conda environment
+Do not forget to activate the conda/micromamba environment
 
 ``` 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.3.1
+micromamba activate anvio-8
 ``` 
 
 First, you can use the following command to get a list of your collections; then use anvi-summarize:
@@ -75,8 +74,8 @@ to use [GUNC](https://grp-bork.embl-community.io/gunc/ ) , activate the followin
 
 ```
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate gunc
+module load micromamba/1.3.1
+micromamba activate gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
@@ -105,8 +104,8 @@ for i in *.fa; do gunc run -i "$i" -r /work_beegfs/sunam###/Databases/gunc_db_pr
 in case of errors please run 
 
 ```
-conda install bioconda::prodigal
-conda install bioconda::diamond==2.0.4.
+micromamba install bioconda::prodigal
+micromamba install bioconda::diamond==2.0.4.
 ```
 
 
@@ -134,8 +133,8 @@ You can save your work as refinement overwrites the bins.
 
 ``` 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.3.1
+micromamba activate anvio-8
 ``` 
 
 Use anvi refine to work on your bins manually. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that the bin will continue to live on in spirit.
@@ -153,8 +152,8 @@ anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFIL
 
 ```
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.3.1
+micromamba activate anvio-8
 
 anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__25
 ```
