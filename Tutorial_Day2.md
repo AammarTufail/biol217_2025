@@ -94,7 +94,7 @@ An important job parameters specific for our course for dedicated resources.
 
 AFTER ALL PARAMETERS comes 
   
-- **your conda activation command line**
+- **your conda/micromamba activation command line**
 - **your command line for executing a process in your pipeline (see below)**
 
 After job submission the batch server evaluates the job script, searches for free, appropriate compute resources and, when able, executes the actual computation or queues the job.
@@ -140,8 +140,8 @@ For all details please refer to the online webpage description from the [RZ cauc
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.3.1
+micromamba activate anvio-8
 ```
 
 
@@ -155,12 +155,12 @@ In summary, The samples originated from one mesophilic agricultural biogas plant
 
 ## Preparation
   
-All packages and programs needed are already installed into one conda environment. Activate this environment every time you open a terminal using the following command:
+All packages and programs needed are already installed into one conda/micromamba environment. Activate this environment every time you open a terminal using the following command:
 
 ```
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.3.1
+micromamba activate anvio-8
 ``` 
 
 
