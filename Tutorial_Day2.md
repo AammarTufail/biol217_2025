@@ -199,7 +199,6 @@ First we need to evaluate the quality of the sequenced data before proceeding wi
 
 [FastQC](https://github.com/s-andrews/FastQC ) provides an overview of basic quality control metrics like the **phred quality score**. This metric gives you an idea on how accurately the base reading was.
 
-$\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
 Before you start, create a folder to store your results in. ${\color{red}Hint:}$ use ``mkdir``!
 
 The first command allows you to loop over all files ending with **.gz** (can be changed to other endings, here those files are compressed **.fastq** files) you have in the directory you are currently in. The second command can be used for single files. In both cases the output will be stored in the **output_folder** (change the name according to the name of your folder).
