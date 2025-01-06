@@ -204,7 +204,6 @@ Before you start, create a folder to store your results in. ${\color{red}Hint:}$
 
 The first command allows you to loop over all files ending with **.gz** (can be changed to other endings, here those files are compressed **.fastq** files) you have in the directory you are currently in. The second command can be used for single files. In both cases the output will be stored in the **output_folder** (change the name according to the name of your folder).
 
-$\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 DO NOT FORGET TO SUBMIT YOUR COMMAND IN A BATCH SCRIPT!
 
 ```ssh
