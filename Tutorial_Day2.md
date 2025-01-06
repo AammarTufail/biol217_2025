@@ -141,7 +141,8 @@ For all details please refer to the online webpage description from the [RZ cauc
 
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate anvio-8
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 ```
 
 
@@ -160,7 +161,8 @@ All packages and programs needed are already installed into one conda/micromamba
 ```
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate anvio-8
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 ``` 
 
 
