@@ -148,7 +148,7 @@ module load gcc12-env/12.1.0
 module load micromamba/1.3.1
 micromamba activate 00_anvio
 
-anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__25
+anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__##
 ```
 
 You can now sort your bins by **GC content**, by **coverage** or both. 
