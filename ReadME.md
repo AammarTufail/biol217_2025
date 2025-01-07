@@ -6,10 +6,12 @@
 
 ### Displaying stuff
 ```
-srun --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
+srun --pty --x11 --partition=interactive --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --mem=10G --time=01:00:00 /bin/bash
+
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba
+micromamba activate $WORK/.micromamba/envs/00_anvio/
+
 ```
 `Run the command to display what you want`
 Then open a new terminal
