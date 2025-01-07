@@ -105,11 +105,12 @@ grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged
 * **Are any of the identified viral contigs complete circular genomes (based on identifying direct terminal repeat regions on both ends of the genome)?
 
 
-You can also look at the table  07D_vBINS_vOTUS_TABLES and find table: MVP_07_Merged_vRhyme_Outputs_Filtered_conservative_best_vBins_Representative_Unbinned_vOTUs_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv
+*You can also look at the table  07D_vBINS_vOTUS_TABLES and find table: `MVP_07_Merged_vRhyme_Outputs_Filtered_conservative_best_vBins_Representative_Unbinned_vOTUs_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv`
 
 
-Now finally let’s have a look at the potential predicted host of these complete viruses.
-Look into folder 08_iPHoP 
+*Now finally let’s have a look at the potential predicted host of these complete viruses.
+*Look into folder 08_iPHoP and find table: `Host_prediction_to_genome_m90.csv`
+* **What are the predicted hosts for your complete virus? are there multiple predicted hosts? are the hosts distantly related? 
 
 
 
