@@ -111,7 +111,8 @@ grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged
 *Now finally let’s have a look at the potential predicted host of these complete viruses.
 *Look into folder 08_iPHoP and find table: `Host_prediction_to_genome_m90.csv`
 * **What are the predicted hosts for your complete virus? are there multiple predicted hosts? are the hosts distantly related? 
-
+* if not find 2 examples of viruses with multiple hosts predicted. for virus 1 closely related hosts and for virus 2 distantly related hosts. 
+* Discuss what might be the reasons based on 1) biological reasoning, 2) the prediction method or 3) potential contamination in host MAG that migh result in such a prediction.
 
 
 
