@@ -30,3 +30,7 @@
 | NCBI MIUViG preparation for submission | --- | --- | --- |
 | Results visualization | R | --- | --- |
 | Prepares data for Viral-host prediction | External: iPhoP | 1.3.3 | https://bitbucket.org/srouxjgi/iphop/src/main/  |
+
+
+
+- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `We will not run the commands as they take a long time and databases are very large`
