@@ -8,7 +8,7 @@ Do not forget to activate the conda/micromamba environment
 module load gcc12-env/12.1.0
 module load micromamba
 cd $WORK
-micromamba activate .micromamba/envs/00_anvio/
+micromamba activate $WORK/.micromamba/envs/00_anvio/
 ``` 
 ## Assembly visualization
 
