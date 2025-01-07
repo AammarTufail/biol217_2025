@@ -6,7 +6,7 @@ Do not forget to activate the conda/micromamba environment
 
 ``` 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
+module load micromamba
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 ``` 
@@ -93,7 +93,6 @@ Then you need to map your raw reads onto your assembled contigs.
 Mapping will be done using [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ). Use the following command to index your mapping reference fasta file. Needed for the next steps and basically makes mapping faser.
 
 ```
-module load bowtie2
 bowtie2-build contigs.anvio.fa contigs.anvio.fa.index
 ```
 
@@ -188,13 +187,17 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 ```diff
 - Here you need to access anvi’o interactive -
 - REPLACE the command line you want to run in interactive mode -
+
+
+srun --pty --x11 --partition=interactive --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --mem=10G --time=01:00:00 /bin/bash
+
 ```
 
 ```
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-cd $WORK
-micromamba activate .micromamba/envs/00_anvio/
+module load micromamba
+cd $WORK/metagenomics/04_mapping
+micromamba activate $WORK/.micromamba/envs/00_anvio/
 
 anvi-display-contigs-stats contigs.db
 ```
@@ -387,7 +390,7 @@ You can then use
 
 ```
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
+module load micromamba
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 
