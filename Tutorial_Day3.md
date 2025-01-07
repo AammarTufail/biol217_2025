@@ -84,7 +84,7 @@ anvi-script-reformat-fasta final.contigs.fa -o /PATH/TO/YOUR/contigs.anvio.fa --
 ```
 </details>
 
-$\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
+
 If you use the flag --report-file, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file
 
 ### Mapping
@@ -141,7 +141,7 @@ done
 > `-2` R2 fasta file containing the raw reads after fastp processing\
 > `-S` name of the output file, don't forget the .sam part!
 
-$\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
+
 All `*.final.contigs.fasta` should have a corresponding mapping file !!!!
 
 The output will be a sequence mapping file (SAM) with the .sam extension and which we convert to binary alignment and map (BAM) file with the .bam extension using [samtools](https://github.com/samtools/samtools ) with the following loop:
