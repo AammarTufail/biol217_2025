@@ -76,7 +76,7 @@ to use [GUNC](https://grp-bork.embl-community.io/gunc/ ) , activate the followin
 ```
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate gunc
+micromamba activate 00_gunc
 ``` 
 Use the following loop to process all your files in one run: 
 
@@ -84,23 +84,16 @@ Use the following loop to process all your files in one run:
 ```ssh
 cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 
-mkdir GUNC
+for i in *.fa; do mkdir /PATH/TO/06_gunc/"$i"_out; done
 
-for i in *.fa; do gunc run -i ? -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir ? --threads 10 --detailed_output; done
+for i in *.fa; do
+  gunc run -i "$i" -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir /PATH/TO/06_gunc/"$i"_out --threads 8 --detailed_output
+done
 
-gunc plot -d /PATH/TO/YOUR/diamond_output/METABAT__#-contigs.diamond.progenomes_2.1.out -g /PATH/TO/YOUR/genes_calls/gene_counts.json
+
+cd /work_beegfs/sunam###/metagenomics/06_gunc/METABAT__###-contigs.fa_out
+gunc plot -d ./diamond_output/METABAT__#-contigs.diamond.progenomes_2.1.out -g ./gene_calls/gene_counts.json
 ```
-
-<details><summary><b>Finished commands</b></summary>
-
-```ssh
-cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
-
-mkdir GUNC
-
-for i in *.fa; do gunc run -i "$i" -r /work_beegfs/sunam###/Databases/gunc_db_progenomes2.1.dmnd --out_dir GUNC/"$i" --threads 10 --detailed_output; done
-```
-</details>
 
 in case of errors please run 
 
@@ -134,7 +127,7 @@ You can save your work as refinement overwrites the bins.
 ``` 
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate anvio-8
+micromamba activate 00_anvio
 ``` 
 
 Use anvi refine to work on your bins manually. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that the bin will continue to live on in spirit.
@@ -153,7 +146,7 @@ anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFIL
 ```
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate anvio-8
+micromamba activate 00_anvio
 
 anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__25
 ```
