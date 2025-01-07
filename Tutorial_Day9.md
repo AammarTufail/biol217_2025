@@ -35,12 +35,16 @@
 
 🔴 **We will not run the commands as they take a long time and databases are very large**
 
-How many proviruses in the BGR_140717/ sample
-How many viruses are in the BGR_140717 sample
+## Questions
 
-Hint look into folder 01_GENOMAD and find the *.fna virus files. Use grep “?” -?
+* **How many proviruses in the BGR_140717/ sample
+* **How many viruses are in the BGR_140717 sample
+
+Hint look into folder 01_GENOMAD and find the *.fna virus files. Use grep “?”
+
 
 <details><summary><b>Finished commands</b></summary>
+  
 ```ssh
 grep ">" -c 01_GENOMAD/BGR_140717/BGR_140717_Proviruses_Genomad_Output/proviruses_summary/proviruses_virus.fna
 
@@ -48,13 +52,26 @@ grep ">" -c 01_GENOMAD/BGR_140717/BGR_140717_Viruses_Genomad_Output/BGR_140717_m
 ```
 </details>
 
-How many Caudoviricetes viruses in the BGR_***/ sample? Any other viral taxonomies?
+## Questions
+
+* ** How many Caudoviricetes viruses in the BGR_***/ sample? Any other viral taxonomies?
+
 Briefly look up and describe these viruses (ds/ss DNA/RNA and hosts (euk/prok)
-How many High-quality and complete viruses in the BGR_***/ sample
+
+* ** How many High-quality and complete viruses in the BGR_***/ sample
 
 Hint look into folder 02_CHECKV and find the MVP_02_BGR_***_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.ts files. Use grep “?” -?
 
+<details><summary><b>Finished commands</b></summary>
+  
+```ssh
 grep -c "Caudoviricetes" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv
+```
+</details>
+
+
+
+
 
 How many Low-Quality/Medium-quality/High-quality/Complete
 grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv
