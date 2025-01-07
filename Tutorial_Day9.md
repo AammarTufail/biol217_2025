@@ -14,11 +14,13 @@
 
 |Pipeline modules | Used software/dependencies | Tool version | Github link |
 | --- | --- | --- | --- |
-| Viruses, proviruses, and plasmid identification | geNomad | 1.7.4 | [---](https://github.com/apcamargo/genomad ) |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
+| Viruses, proviruses, and plasmid identification | geNomad | 1.7.4 | [geNomad link](https://github.com/apcamargo/genomad ) |
+| Viral Taxonomy | --- | --- | --- |
+| Quality assessment and filtering | --- | --- | --- |
+| ANI clustering | --- | --- | --- |
+| Abundance estimation | --- | --- | --- |
+| Gene function annotation | --- | --- | --- |
+| Viral Binning | vRhyme | 1.1.0 | https://github.com/AnantharamanLab/vRhyme |
+| NCBI MIUViG preparation for submission | --- | --- | --- |
+| Results visualization | R | --- | --- |
+| Prepares data for Viral-host prediction | External: iPhoP | 1.3.3 | https://bitbucket.org/srouxjgi/iphop/src/main/  |
