@@ -12,7 +12,7 @@ Do not forget to activate the conda/micromamba environment
 ``` 
 module load gcc12-env/12.1.0
 module load micromamba/1.3.1
-micromamba activate anvio-8
+micromamba activate 00_anvio
 ``` 
 
 
