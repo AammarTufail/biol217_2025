@@ -103,14 +103,12 @@ bowtie2-build contigs.anvio.fa contigs.anvio.fa.index
 Now use [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) for the actual mapping. Use the loop command, below you have the single command for better understanding.
 
 ```ssh
-module load bowtie2
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 ? -2 ? -S ?
 ```
 
 <details><summary><b>Finished commands</b></summary>
 
 ```ssh
-module load bowtie2
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 /PATH/TO/sample1_R1_clean.fastq.gz -2 /PATH/TO/sample1_R2_clean.fastq.gz -S SAMPLE.sam
 ```
 
@@ -118,14 +116,6 @@ or in a loop from your fastq clean folder:
 
 ```ssh
 cd /PATH/TO/FASTP
-for i in `ls *_R1.fastq.gz`;
-do
-    second=`echo ${i} | sed 's/_R1/_R2/g'`
-bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${second} -S /PATH/TO/4_mapping/"$i".sam 
-done
-
-
-OR
 
 for i in $*_R1.fastq.gz; do
   base=$(basename "$i" _R1.fastq.gz)
@@ -147,22 +137,18 @@ All `*.final.contigs.fasta` should have a corresponding mapping file !!!!
 The output will be a sequence mapping file (SAM) with the .sam extension and which we convert to binary alignment and map (BAM) file with the .bam extension using [samtools](https://github.com/samtools/samtools ) with the following loop:
 
 ```ssh
-module load samtools
 samtools view -bS ? > bam_file.bam
 ```
 
 <details><summary><b>Finished commands</b></summary>
 
 ```ssh
-module load samtools
 samtools view -bS sam_file.sam > bam_file.bam
 ```
 
 Or in a loop:
 
 ```ssh
-module load samtools
-
 cd /PATH/TO/MAPPING/OUT
 for i in *.sam; do samtools view -bS $i > "$i".bam; done
 ```
