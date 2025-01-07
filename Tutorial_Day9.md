@@ -35,6 +35,57 @@
 
 🔴 **We will not run the commands as they take a long time and databases are very large**
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🔴 **Here are the exact command lines used**
+
+# MVP
+```
+module load gcc12-env/12.1.0
+module load micromamba/1.3.1
+micromamba activate MVP
+cd $WORK/MVP_test
+mvip MVP_00_set_up_MVP -i ./WORKING_DIRECTORY/ -m input_file_timeseries_final.csv  --genomad_db_path ./WORKING_DIRECTORY/00_DATABASES/genomad_db/ --checkv_db_path ./WORKING_DIRECTORY/00_DATABASES/checkv-db-v1.5/
+mvip MVP_00_set_up_MVP -i ./WORKING_DIRECTORY/ -m input_file_timeseries_final.csv  --skip_install_databases
+mvip MVP_01_run_genomad_checkv -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+mvip MVP_02_filter_genomad_checkv -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+mvip MVP_03_do_clustering -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+mvip MVP_04_do_read_mapping -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv --delete_files
+mvip MVP_05_create_vOTU_table -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+mvip MVP_06_do_functional_annotation -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+mvip MVP_07_do_binning -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv --force_outputs
+mvip MVP_100_summarize_outputs -i WORKING_DIRECTORY/ -m input_file_timeseries_final.csv
+```
+
+# iPHoP
+```
+module load miniconda3/4.12.0
+conda activate /zfshome/sunam088/.conda/envs/ViWrap/ViWrap-GTDBTk
+export GTDBTK_DATA_PATH=/work_beegfs/sunam088/ViWrap/ViWrap_db/GTDB_db/GTDB_db
+
+gtdbtk de_novo_wf --genome_dir /work_beegfs/sunam088/BGR_MVP/fa_all/ \
+--bacteria --outgroup_taxon p__Patescibacteria \
+--out_dir /work_beegfs/sunam088/BGR_MVP/MVP_07_Filtered_conservative_Prokaryote_Host_Only_best_vBins_Representative_Unbinned_vOTUs_Sequences_iPHoP_Input_iphop_test_output/ \
+--cpus 12 --force --extension fa
+
+gtdbtk de_novo_wf --genome_dir /work_beegfs/sunam088/BGR_MVP/fa_all/ \
+--archaea --outgroup_taxon p__Altarchaeota \
+--out_dir /work_beegfs/sunam088/BGR_MVP/MVP_07_Filtered_conservative_Prokaryote_Host_Only_best_vBins_Representative_Unbinned_vOTUs_Sequences_iPHoP_Input_iphop_test_output/ \
+--cpus 12 --force --extension fa
+
+module load micromamba/1.3.1
+micromamba activate iphop_env
+iphop add_to_db --fna_dir /work_beegfs/sunam088/BGR_MVP/fa_all/ \
+--gtdb_dir ./MVP_07_Filtered_conservative_Prokaryote_Host_Only_best_vBins_Representative_Unbinned_vOTUs_Sequences_iPHoP_Input_iphop_test_output/ \
+--out_dir ./MAGs_iPHoP_db \
+--db_dir /work_beegfs/sunam088/ViWrap/ViWrap_db/iPHoP_db/iPHoP_db/
+
+iphop predict --fa_file ./MVP_07_Filtered_conservative_Prokaryote_Host_Only_best_vBins_Representative_Unbinned_vOTUs_Sequences_iPHoP_Input.fasta \
+--db_dir ./MAGs_iPHoP_db \
+--out_dir ./iphop_output -t 12
+```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Questions
 
 * **How many proviruses in the BGR_140717/ sample
