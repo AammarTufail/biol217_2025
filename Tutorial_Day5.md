@@ -4,7 +4,7 @@ $${\color{red}DAY 5}$$
 
 ## Your data
 ``` 
-cd /work_beegfs/sunam###/Metagenomics
+cd /work_beegfs/sunam###/metagenomics
 ``` 
 
 Do not forget to activate the conda/micromamba environment
