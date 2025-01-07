@@ -60,7 +60,7 @@ grep ">" -c 01_GENOMAD/BGR_140717/BGR_140717_Viruses_Genomad_Output/BGR_140717_m
 
 * **How many High-quality and complete viruses in the BGR_***/ sample
 
-- Hint look into folder 02_CHECKV and find the MVP_02_BGR_***_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.ts files. Use grep “?” -?
+- Hint look into folder 02_CHECKV and find the `MVP_02_BGR_***_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv` files. Use grep “?” -?
 
 <details><summary><b>Finished commands</b></summary>
   
@@ -69,6 +69,7 @@ grep -c "Caudoviricetes" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Mer
 ```
 </details>
 
+## Questions
 
 * **How many Low-Quality/Medium-quality/High-quality/Complete
   
@@ -79,34 +80,29 @@ grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged
 ```
 </details>
 
+## Questions
 
-What is the length of the complete virus? How many viral hallmark genes?
+* **What is the length of the complete virus? How many viral hallmark genes?
+* **Check how abundant is your complete virus in the different samples (RPKM)? Look into folders `04_READ_MAPPING/Subfolders/BGR_*_CoverM.tsv` and find your viruses.
+* **Create a table and summarize the RPKM value of the virus in the different samples. Or look into folder 05_VOTU_TABLES
 
-Check how abundant is your complete virus in the different samples (RPKM)? Look into folders
-04_READ_MAPPING/Subfolders/BGR_*_CoverM.tsv and find your viruses.
-Create a table and summarize the RPKM value of the virus in the different samples.
+## Questions
+* Now let’s look at annotated genes in 06_FUNCTIONAL_ANNOTATION and find the table: 
+`MVP_06_All_Sample_Filtered_Conservative_Merged_Genomad_CheckV_Representative_Virus_Proviruses_Gene_Annotation_GENOMAD_PHROGS_PFAM_Filtered.tsv`
 
-Or look into folder 05_VOTU_TABLES
+* Now find/filter your complete virus and find the viral hallmark genes with a PHROG annotation (hint: look at the columns).
 
+* **What are typical annotations you see? What could the functions be?  
 
-Now let’s look at annotated genes in 06_FUNCTIONAL_ANNOTATION and find the table: 
-MVP_06_All_Sample_Filtered_Conservative_Merged_Genomad_CheckV_Representative_Virus_Proviruses_Gene_Annotation_GENOMAD_PHROGS_PFAM_Filtered.tsv
+* **Now look for the category of “moron, auxiliary metabolic gene and host takeover” any toxin genes???? Quickly look up the function of this toxin (hint, vibrio phage and vibrio cholerae host)
 
-
-
-Now find/filter your complete virus and find the viral hallmark genes with a PHROG annotation (hint: look at the columns).
-What are typical annotations you see? What could the functions be?  
-
-
-Now look for the category of “moron, auxiliary metabolic gene and host takeover” any toxin genes???? Quickly look up the function of this toxin (hint, vibrio phage and vibrio cholerae host)
-
-Now let’s look at the binning results
-Look at 07_BINNING/07C_vBINS_READ_MAPPING/  and find table MVP_07_Merged_vRhyme_Outputs_Unfiltered_best_vBins_Memberships_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv
+*Now let’s look at the binning results. Look at 07_BINNING/07C_vBINS_READ_MAPPING/ and find table `MVP_07_Merged_vRhyme_Outputs_Unfiltered_best_vBins_Memberships_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv`
 
 
-How many High-quality viruses after binning in comparison to before binning? (hint: look carefully at the table, it has duplicate entries for bins)
+## Questions
 
-Are any of the identified viral contigs complete circular genomes (based on identifying direct terminal repeat regions on both ends of the genome)?
+* **How many High-quality viruses after binning in comparison to before binning? (hint: look carefully at the table, it has duplicate entries for bins)
+* **Are any of the identified viral contigs complete circular genomes (based on identifying direct terminal repeat regions on both ends of the genome)?
 
 
 You can also look at the table  07D_vBINS_vOTUS_TABLES and find table: MVP_07_Merged_vRhyme_Outputs_Filtered_conservative_best_vBins_Representative_Unbinned_vOTUs_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv
