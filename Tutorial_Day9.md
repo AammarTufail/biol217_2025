@@ -1,9 +1,11 @@
 # Metaviromics tutorial
 
 ## Viromics reference
-* Reference paper for pipeline used: https://journals.asm.org/doi/10.1128/msystems.00888-24 
-* Reference GitHub for pipeline used: https://gitlab.com/ccoclet/mvp 
 
+* Reference paper for MVP pipeline used: https://journals.asm.org/doi/10.1128/msystems.00888-24 
+* Reference GitHub for pipeline used: https://gitlab.com/ccoclet/mvp 
+* Reference paper for iPHoP pipeline used: [https://journals.asm.org/doi/10.1128/msystems.00888-24](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002083)
+  
 ## The pipeline's main steps are:
 * The MVP pipeline takes (meta)-genomic assemblies, reads, and metadata as inputs, and performs the following steps:
 
