@@ -4,7 +4,7 @@ $${\color{red}DAY 4}$$
 
 ## Your data
 ``` 
-cd /work_beegfs/sunam###/Metagenomics
+cd /work_beegfs/sunam###/metagenomics
 ```
 
 
@@ -23,8 +23,11 @@ Do not forget to activate the conda/micromamba environment
 
 ``` 
 module load gcc12-env/12.1.0
-module load micromamba/1.3.1
-micromamba activate anvio-8
+module load micromamba
+eval "$(micromamba shell hook --shell=bash)"
+export MAMBA_ROOT_PREFIX=$WORK/.micromamba
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 ``` 
 
 First, you can use the following command to get a list of your collections; then use anvi-summarize:
@@ -59,7 +62,7 @@ mkdir ../../ARCHAEA_BIN_REFINEMENT
 
 cp /PATH/TO/bin_by_bin/METABAT_BIN_###/*.fa /PATH/TO/ARCHAEA_BIN_REFINEMENT/
 ``` 
-$\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
+
 !!!!!!!!!!!!!!!DO THIS FOR ALL ARCHAEA BINS YOU HAVE!!!!!!!!!!!!!!!
 
 ### Chimera detection in MAGs
@@ -128,7 +131,6 @@ As large metagenome assemblies can result in hundreds of bins, pre-select the be
 
 Before you start, make a **copy/backup** of your unrefined bins the ``ARCHAEA_BIN_REFINEMENT``.
 
-$\color{#D29922}\textsf{\Large\&#x26A0;\kern{0.2cm}\normalsize Warning}$
 You can save your work as refinement overwrites the bins. 
 
 ``` 
@@ -171,7 +173,6 @@ You can also remove contigs.
 
 Spend some time to experiment in the browser.
 
-$\color{#58A6FF}\textsf{\Large\&#x24D8;\kern{0.2cm}\normalsize Note}$
 For refinement use clustering based on only differential coverage, and then only based on sequence composition in search for outliers.
 
 
