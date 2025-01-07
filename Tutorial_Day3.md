@@ -6,8 +6,9 @@ Do not forget to activate the conda/micromamba environment
 
 ``` 
 module load gcc12-env/12.1.0
-module load micromamba/1.3.1
-micromamba activate anvio-8
+module load miniconda3/4.12.0
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 ``` 
 ## Assembly visualization
 
@@ -205,8 +206,9 @@ Once you have your contigs database ready, and optionally your HMMs are run, you
 
 ```
 module load gcc12-env/12.1.0
-module load micromamba/1.3.1
-micromamba activate anvio-8
+module load miniconda3/4.12.0
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 anvi-display-contigs-stats contigs.db
 ```
@@ -399,8 +401,9 @@ You can then use
 
 ```
 module load gcc12-env/12.1.0
-module load micromamba/1.3.1
-micromamba activate anvio-8
+module load miniconda3/4.12.0
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 anvi-interactive -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db -C YOUR_COLLECTION
 ```
