@@ -33,4 +33,5 @@
 
 
 
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `We will not run the commands as they take a long time and databases are very large`
+<span style="color:red; font-weight:bold;">We will not run the commands as they take a long time and databases are very large</span>
+
