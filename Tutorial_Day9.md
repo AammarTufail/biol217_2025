@@ -90,7 +90,6 @@ iphop predict --fa_file ./MVP_07_Filtered_conservative_Prokaryote_Host_Only_best
 
 ## Questions
 
-* **How many proviruses in the BGR_140717/ sample
 * **How many viruses are in the BGR_140717 sample
 
 - Hint look into folder 01_GENOMAD and find the *.fna virus files. Use grep “?”
