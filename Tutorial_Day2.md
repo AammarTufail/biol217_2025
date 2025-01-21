@@ -139,7 +139,7 @@ For all details please refer to the online webpage description from the [RZ cauc
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
-module load micromamba/1.3.1
+module load micromamba/1.4.2
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 ```
