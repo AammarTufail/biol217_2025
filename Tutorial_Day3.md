@@ -122,9 +122,8 @@ or in a loop from your fastq clean folder:
 ```ssh
 cd /PATH/TO/FASTP
 
-for i in $*_R1.fastq.gz; do
-  base=$(basename "$i" _R1.fastq.gz)
-  bowtie2 --very-fast -x /PATH/TO/index -1 ${i} -2 ${base}_R2.fastq.gz -S /PATH/TO/4_mapping/"${base}".sam 
+for i in $*_R1_clean.fastq.gz; do
+  base="${i%_R1_clean.fastq.gz}"; bowtie2 --very-fast -x /PATH/TO/index -1 $i -2 $"base"_R2_clean.fastq.gz -S /PATH/TO/4_mapping/"${base}".sam 
 done
 ```
 </details>
