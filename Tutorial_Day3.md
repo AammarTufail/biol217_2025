@@ -13,12 +13,17 @@ micromamba activate $WORK/.micromamba/envs/00_anvio/
 ## Assembly visualization
 
 To count the number of contigs in your final assembly file
+
+!!!!!! This can be run on the login node
+
 ```
 grep -c ">" final.contigs.fa
 ```
 
 To visualize contig graph in **Bandage**, the first step is to convert the fasta file(s) intermediate_contigs/k{kmer_size}.contigs.fa into SPAdes-like **FASTG** format. The following code shows the translation from **NAME.contigs.fa** into **NAME.fastg**.
-  
+
+!!!!!! This can be run on the login node
+
 Example:
 ```
 megahit_toolkit contig2fastg final.contigs.fa > final.contigs.fastg                   
@@ -43,7 +48,8 @@ You can now label the nodes by adding parameters like Depth or Name. Whenever yo
 ## Quality Assessment of Assemblies
 
 [quast](https://quast.sourceforge.net/quast ) is a **QU**ality **AS**sessment **T**ool to evaluate genome assembly. You will use it to evaluate the results coming from [megahit](https://github.com/voutcn/megahit ).\
-First you need to run quast. Using the terminal go to the assembly folder, then use the following command:
+
+Your need to run the quast command on the computation nodes (SBATCH):
 
 ```ssh
 metaquast -t 6 -o ? -m 1000 ?
