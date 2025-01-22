@@ -252,14 +252,6 @@ anvi-profile -i YOUR_SORTED.bam -c contigs.db --output-dir OUTPUT_DIR
 
 or in a loop:
 
-```ssh
-mkdir /PATH/TO/profiling/
-                for i in $mapping_out/*.sorted.bam; do
-                    base=$(basename "$i" .sam.bam.sorted.bam)
-                    anvi-profile -i "$i" -c $mapping_out/contigs.db -o $profiling_out/${base}
-                done
-```
-
 
 ``ssh
 for i in *.sorted.bam; do
