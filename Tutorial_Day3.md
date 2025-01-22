@@ -107,6 +107,8 @@ bowtie2-build contigs.anvio.fa contigs.anvio.fa.index
 
 Now use [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ) for the actual mapping. Use the loop command, below you have the single command for better understanding.
 
+!!!!!!!!! only use contigs.anvio.fa.index  in your command line. YOU DO NOT NEED TO LIST ALL previously generated *.index* files. BOWTIE2 will recognize them automatically.
+
 ```ssh
 bowtie2 --very-fast -x contigs.anvio.fa.index -1 ? -2 ? -S ?
 ```
