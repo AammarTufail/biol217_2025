@@ -164,7 +164,7 @@ for i in *.sam; do samtools view -bS $i > "$i".bam; done
 > `bam_file.bam` output .bam file
 
 ### Contigs data preparation!
-You need to convqqase is an *anvi’o* [contigs-db](https://anvio.org/help/main/artifacts/contigs-db/) database that contains key information associated with your sequences.
+You need to "contigs.db" is an *anvi’o* [contigs-db](https://anvio.org/help/main/artifacts/contigs-db/) database that contains key information associated with your sequences.
 
 ```
 anvi-gen-contigs-database -f contigs.anvio.fa -o contigs.db -n 'biol217'
