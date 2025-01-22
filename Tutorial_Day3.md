@@ -223,7 +223,7 @@ Together with a very extensive program, [anvi’o](https://anvio.org/ ) offers a
 
 The first step will be to sort and index your ``.bam`` files.
 
-[anvi’o](https://anvio.org/ ) does this by using [samtools](https://github.com/samtools/samtools ) in the background, it merges two separate samtools commands (sorting and indexing = fo each ``.bam`` file you have, there also is a ``.bam.bai`` file in the same directory) into one. 
+[anvi’o](https://anvio.org/ ) does this by using [samtools](https://github.com/samtools/samtools ) in the background, it merges two separate samtools commands (sorting and indexing = for each ``.bam`` file you have, there also is a ``.bam.bai`` file in the same directory) into one. 
 
 Run the loop as shown below:
 
