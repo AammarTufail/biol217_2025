@@ -255,7 +255,7 @@ or in a loop:
 ```ssh
 
 for i in *.sorted.bam; do
-  base="${.sam.bam.sorted.bam}"
+  base="${i%.sam.bam.sorted.bam}"
   anvi-profile -i "$i" -c contigs.db -o ${base}
 done
 
