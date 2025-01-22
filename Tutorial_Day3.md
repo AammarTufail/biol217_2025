@@ -123,7 +123,7 @@ or in a loop from your fastq clean folder:
 cd /PATH/TO/FASTP
 
 for i in *_R1_clean.fastq.gz; do
-  base="${i%_R1_clean.fastq.gz}"; bowtie2 --very-fast -x /PATH/TO/index -1 $i -2 $"base"_R2_clean.fastq.gz -S /PATH/TO/4_mapping/"${base}".sam 
+  base="${i%_R1_clean.fastq.gz}"; bowtie2 --very-fast -x /PATH/TO/index -1 $i -2 "$base"_R2_clean.fastq.gz -S /PATH/TO/4_mapping/"${base}".sam 
 done
 ```
 </details>
