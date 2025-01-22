@@ -21,9 +21,9 @@ To visualize contig graph in **Bandage**, the first step is to convert the fasta
   
 Example:
 ```
-megahit_toolkit contig2fastg 99 final.contigs.fa > final.contigs.fastg                   
+megahit_toolkit contig2fastg final.contigs.fa > final.contigs.fastg                   
 ```
-Then the FASTG file k99.fastg can be loaded into **Bandage**.
+Then the FASTG file fasta.fastg can be loaded into **Bandage**.
 
 The program is already installed on your PC and can be used as a GUI.
 Use it to open the **final.contigs.fastg** file. Once it's loaded (this might take a second) click on Draw graph to create a graph. 
@@ -43,7 +43,7 @@ You can now label the nodes by adding parameters like Depth or Name. Whenever yo
 ## Quality Assessment of Assemblies
 
 [quast](https://quast.sourceforge.net/quast ) is a **QU**ality **AS**sessment **T**ool to evaluate genome assembly. You will use it to evaluate the results coming from [megahit](https://github.com/voutcn/megahit ).\
-First you need to run quast. Using the terminal go to the quast folder, then use the following command:
+First you need to run quast. Using the terminal go to the assembly folder, then use the following command:
 
 ```ssh
 metaquast -t 6 -o ? -m 1000 ?
