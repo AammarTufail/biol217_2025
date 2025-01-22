@@ -259,6 +259,15 @@ mkdir /PATH/TO/profiling/
                     anvi-profile -i "$i" -c $mapping_out/contigs.db -o $profiling_out/${base}
                 done
 ```
+
+
+``ssh
+for i in *.sorted.bam; do
+  base="${.sam.bam.sorted.bam}"
+  anvi-profile -i "$i" -c contigs.db -o ${base}
+done
+```
+
 </details>
 
 > `-i` sorted and indexed bam file, used as input\
