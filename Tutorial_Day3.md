@@ -138,7 +138,7 @@ done
 > `-S` name of the output file, don't forget the .sam part!
 
 
-All `*.final.contigs.fasta` should have a corresponding mapping file !!!!
+There should be 3 mapping files ".sam" !!!!
 
 The output will be a sequence mapping file (SAM) with the .sam extension and which we convert to binary alignment and map (BAM) file with the .bam extension using [samtools](https://github.com/samtools/samtools ) with the following loop:
 
