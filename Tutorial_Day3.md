@@ -77,7 +77,7 @@ metaquast -t 6 -o /PATH/TO/3_metaquast -m 1000 final.contigs.fa
 
 ## Genomes Binning
 The first thing you will do is format your fasta sequence IDs. Anvi’o (which you will use later) needs this step to work properly.\
-Run this with your contigs and with your clean reads (Hint: fastp output). As the names get changed, you need to run it on your assembly file, otherwise the names of the contigs won't match the names of the initial reads (essential for the mapping step below).
+Run this with your contigs. As the names get changed, you need to run it on your assembly file, otherwise the names of the contigs won't match the names of the initial reads (essential for the mapping step below).
 
 ```ssh
 anvi-script-reformat-fasta ? -o ? --min-len 1000 --simplify-names --report-file name_conversion.txt
@@ -95,7 +95,7 @@ If you use the flag --report-file, it will also create a TAB-delimited file for 
 
 ### Mapping
 
-Then you need to map your raw reads onto your assembled contigs.
+Then you need to map your clean reads (Hint: fastp output) onto your assembled contigs.
 Mapping will be done using [bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml ). Use the following command to index your mapping reference fasta file. Needed for the next steps and basically makes mapping faser.
 
 ```
