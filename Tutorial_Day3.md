@@ -252,12 +252,13 @@ anvi-profile -i YOUR_SORTED.bam -c contigs.db --output-dir OUTPUT_DIR
 
 or in a loop:
 
+```ssh
 
-``ssh
 for i in *.sorted.bam; do
   base="${.sam.bam.sorted.bam}"
   anvi-profile -i "$i" -c contigs.db -o ${base}
 done
+
 ```
 
 </details>
