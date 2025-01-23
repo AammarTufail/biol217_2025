@@ -53,6 +53,10 @@ Explore your summary table
 
 
 As each bin is stored in its own folder, use 
+
+replace the `###` by the number of your archaea MAG
+
+
 ``` 
 cd /PATH/TO/SUMMARY/bin_by_bin
 
@@ -91,7 +95,6 @@ for i in *.fa; do
 done
 ```
 
-replace the `###` by the number of your archaea MAG
 
 do this for each of the archaea bin in its specific folder to not overwrite the output
 
