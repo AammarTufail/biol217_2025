@@ -49,7 +49,7 @@ anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C 
 ```
 </details>
 
-Explore the err output from your summary table
+Explore your summary table
 
 
 As each bin is stored in its own folder, use 
