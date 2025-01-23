@@ -42,6 +42,8 @@ anvi-summarize -p /PATH/TO/merged_profiles/PROFILE.db -c /PATH/TO/contigs.db --l
 
 Then use anvi-summarize as displayed below.
 
+!do not create the output folder beforehand. this command line will complain.
+
 ```ssh
 anvi-summarize -c /PATH/TO/contigs.db -p /PATH/TO/merged_profiles/profile.db -C METABAT2 -o /PATH/TO/SUMMARY_METABAT2 --just-do-it
 ```
