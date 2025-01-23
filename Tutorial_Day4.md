@@ -23,8 +23,6 @@ Do not forget to activate the conda/micromamba environment
 ``` 
 module load gcc12-env/12.1.0
 module load micromamba
-eval "$(micromamba shell hook --shell=bash)"
-export MAMBA_ROOT_PREFIX=$WORK/.micromamba
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 ``` 
