@@ -143,9 +143,7 @@ micromamba activate 00_anvio
 Use anvi refine to work on your bins manually. *“In the interactive interface, any bins that you create will overwrite the bin that you originally opened. If you don’t provide any names, the new bins’ titles will be prefixed with the name of the original bin, so that the bin will continue to live on in spirit.
 Essentially, it is like running anvi-interactive, but disposing of the original bin when you’re done.” https://anvio.org/help/main/artifacts/interactive/*
 
-``` 
-anvi-refine -c /PATH/TO/contigs.db -C METABAT2 -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__##
-``` 
+
 
 ```diff
 -!!!!!!!!!!!!!!!!!!!!!AS MENTIONED BEFORE!!!!!!!!!!!!!!!!!!!!!
@@ -158,7 +156,7 @@ module load gcc12-env/12.1.0
 module load micromamba/1.3.1
 micromamba activate 00_anvio
 
-anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__##
+anvi-refine -c /PATH/TO/contigs.db -C METABAT2 -p /PATH/TO/merged_profiles/PROFILE.db --bin-id METABAT__##
 ```
 
 You can now sort your bins by **GC content**, by **coverage** or both. 
