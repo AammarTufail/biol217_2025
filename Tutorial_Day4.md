@@ -89,7 +89,14 @@ for i in *.fa; do mkdir /PATH/TO/06_gunc/"$i"_out; done
 for i in *.fa; do
   gunc run -i "$i" -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir /PATH/TO/06_gunc/"$i"_out --threads 8 --detailed_output
 done
+```
 
+replace the `###` by the number of your archaea MAG
+
+do this for each of the archaea bin in its specific folder to not overwrite the output
+
+
+```ssh
 
 cd /work_beegfs/sunam###/metagenomics/06_gunc/METABAT__###-contigs.fa_out
 gunc plot -d ./diamond_output/METABAT__#-contigs.diamond.progenomes_2.1.out -g ./gene_calls/gene_counts.json
