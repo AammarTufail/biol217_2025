@@ -87,7 +87,7 @@ cd /PATH/TO/ARCHAEA_BIN_REFINEMENT
 for i in *.fa; do mkdir /PATH/TO/06_gunc/"$i"_out; done
 
 for i in *.fa; do
-  gunc run -i "$i" -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir /PATH/TO/06_gunc/"$i"_out --threads 8 --detailed_output
+  gunc run -i "$i" -r $WORK/databases/gunc/gunc_db_progenomes2.1.dmnd --out_dir /PATH/TO/06_gunc/"$i"_out --threads 12 --detailed_output
 done
 ```
 
