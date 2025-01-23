@@ -141,7 +141,7 @@ Use anvi refine to work on your bins manually. *“In the interactive interface,
 Essentially, it is like running anvi-interactive, but disposing of the original bin when you’re done.” https://anvio.org/help/main/artifacts/interactive/*
 
 ``` 
-anvi-refine -c /PATH/TO/contigs.db -C METABAT -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__##
+anvi-refine -c /PATH/TO/contigs.db -C METABAT2 -p /PATH/TO/merged_profiles/PROFILE.db --bin-id Bin_METABAT__##
 ``` 
 
 ```diff
