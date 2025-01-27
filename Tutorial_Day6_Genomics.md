@@ -255,8 +255,8 @@ NanoPlot --fastq $input_dir/file1_cleaned_filtlong.fastq.gz -o $output_dir -t 6 
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=02_long_reads_qc
 #SBATCH --output=02_long_reads_qc.out
@@ -277,7 +277,7 @@ micromamba activate 02_long_reads_qc
 cd $WORK/genomics/0_raw_reads/long_reads/
 mkdir -p $WORK/genomics/2_long_reads_qc/1_nanoplot_raw
 NanoPlot --fastq $WORK/genomics/0_raw_reads/long_reads/*.gz \
- -o $WORK/genomics/2_long_reads_qc/1_nanoplot_raw -t 32 \
+ -o $WORK/genomics/2_long_reads_qc/1_nanoplot_raw -t 16 \
  --maxlength 40000 --minlength 1000 --plots kde --format png \
  --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
 
@@ -289,7 +289,7 @@ filtlong --min_length 1000 --keep_percent 90 $WORK/genomics/0_raw_reads/long_rea
 cd $WORK/genomics/2_long_reads_qc/2_cleaned_reads
 mkdir -p $WORK/genomics/2_long_reads_qc/3_nanoplot_cleaned
 NanoPlot --fastq $WORK/genomics/2_long_reads_qc/2_cleaned_reads/*.gz \
- -o $WORK/genomics/2_long_reads_qc/3_nanoplot_cleaned -t 32 \
+ -o $WORK/genomics/2_long_reads_qc/3_nanoplot_cleaned -t 16 \
  --maxlength 40000 --minlength 1000 --plots kde --format png \
  --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
 
