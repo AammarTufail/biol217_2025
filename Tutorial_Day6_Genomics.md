@@ -240,6 +240,7 @@ jobinfo
 ### 2.2.1. [NanoPlot](https://github.com/wdecoster/NanoPlot)
 
 ```bash
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/02_long_reads_qc
 
@@ -336,7 +337,9 @@ unicycler -1 $short_read1 -2 $short_read2 -l $long_reads -o $output_dir -t 32
 ```bash
 # 3 Assembly (1 hour)-----------------------------------------------------------
 echo "---------Unicycler Assembly pipeline started---------"
-micromamba activate 03_unicycler
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/02_long_reads_qc
 cd $WORK/genomics
 mkdir -p $WORK/genomics/3_hybrid_assembly
 unicycler -1 $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R1_clean.fastq.gz -2 $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -l $WORK/genomics/2_long_reads_qc/2_cleaned_reads/241155E_cleaned_filtlong.fastq.gz -o $WORK/genomics/3_hybrid_assembly/ -t 32
