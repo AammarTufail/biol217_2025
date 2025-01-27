@@ -497,7 +497,7 @@ echo "---------GTDB Classification Started---------"
 # (can not work, maybe due to insufficient memory usage increase the ram in bash script)
 cd $WORK
 micromamba activate .micromamba/envs/07_gtdbtk
-conda env config vars set GTDBTK_DATA_PATH="$WORK/databases/gtdbtk";
+conda env config vars set GTDBTK_DATA_PATH="$WORK/databases/gtdbtk/release220";
 cd $WORK
 micromamba activate .micromamba/envs/07_gtdbtk
 cd $WORK/genomics/4_annotated_genome
