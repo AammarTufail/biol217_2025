@@ -498,6 +498,17 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 
 ```bash
 # 6 Classification-----------------------------------------------------------
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --time=1:00:00
+#SBATCH --job-name=01_fastqc
+#SBATCH --output=01_fastqc.out
+#SBATCH --error=01_fastqc.err
+#SBATCH --partition=base
+#SBATCH --reservation=biol217
+
 echo "---------GTDB Classification Started---------"
 # (can not work, maybe due to insufficient memory usage increase the ram in bash script)
 cd $WORK
