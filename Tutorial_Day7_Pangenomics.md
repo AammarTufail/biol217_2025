@@ -17,7 +17,7 @@ $${\color{red}DAY 7}$$
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
-  - [12. Compute the phylogomics with PyANI](#12-computing-phylogenomics-for-your-pangenome)
+  - [12. Computing Phylogenomics for your pangenome](#12-computing-phylogenomics-for-your-pangenome)
  
 
 ## Aim
@@ -42,9 +42,9 @@ This tutorial follows the workflow of the [anvi'o miniworkshop](https://merenlab
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
-#SBATCH --time=5:00:00
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --time=2:00:00
 #SBATCH --job-name=anvio_pangenomics
 #SBATCH --output=anvio_pangenomics.out
 #SBATCH --error=anvio_pangenomics.err
@@ -52,11 +52,12 @@ This tutorial follows the workflow of the [anvi'o miniworkshop](https://merenlab
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 # create new folder
-mkdir $WORK/pangenomics/02_anvio_pangenomics
+mkdir $WORK/pangenomics/01_anvio_pangenomics
 ```
 
 ## 2. Download the data
@@ -113,8 +114,9 @@ done
 - Open the terminal and write these commands:
 ```bash
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 anvi-display-contigs-stats /path/to.your/databases/*db
 ```
@@ -178,8 +180,9 @@ Now to display run this command directly in the terminal
 srun --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8_biol217
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 anvi-interactive -c V_jascida_52.db \
                  -p V_jascida_52/PROFILE.db
@@ -230,8 +233,9 @@ anvi-pan-genome -g V_jascida-GENOMES.db \
 srun --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8_biol217
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 
 anvi-display-pan -p V_jascida/V_jascida-PAN.db \
                  -g V_jascida-GENOMES.db
