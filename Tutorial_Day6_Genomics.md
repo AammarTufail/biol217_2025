@@ -356,7 +356,7 @@ echo "---------Unicycler Assembly pipeline Completed Successfully---------"
 
 ```bash
 cd $WORK
-micromamba activate .micromamba/envs/04_checkm_quast
+micromamba activate .micromamba/envs/04_quast
 
 quast.py assembly.fasta --circos -L --conserved-genes-finding --rna-finding\
      --glimmer --use-all-alignments --report-all-metrics -o $output_dir -t 16
@@ -370,7 +370,7 @@ quast.py assembly.fasta --circos -L --conserved-genes-finding --rna-finding\
 echo "---------Assembly Quality Check Started---------"
 
 ## 4.1 Quast (5 minutes)
-micromamba activate .micromamba/envs/04_checkm_quast
+micromamba activate .micromamba/envs/04_quast
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/quast
 quast.py $WORK/genomics/3_hybrid_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding \
@@ -385,7 +385,7 @@ micromamba deactivate
 
 
 ```bash
-micromamba activate .micromamba/envs/04_checkm_quast
+micromamba activate .micromamba/envs/04_checkm
 # Create the output directory if it does not exist
 mkdir -p $checkm_out
 # Run CheckM for this assembly
@@ -402,7 +402,7 @@ checkm qa ./c$checkm_out/lineage.ms ./$checkm_out/ -o 2 > ./$checkm_out/final_ta
 
 ```bash
 ## 4.2 CheckM
-micromamba activate .micromamba/envs/04_checkm_quast
+micromamba activate .micromamba/envs/04_checkm
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm
 checkm lineage_wf $WORK/genomics/3_hybrid_assembly/ $WORK/genomics/3_hybrid_assembly/checkm -x fasta --tab_table --file $WORK/genomics/3_hybrid_assembly/checkm/checkm_results -r -t 32
@@ -419,7 +419,7 @@ micromamba deactivate
 
 ```bash
 cd $WORK
-micromamba activate .micromamba/envs/05_checkm2
+micromamba activate .micromamba/envs/04_checkm2
 checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output_dir
 ```
 
@@ -430,7 +430,7 @@ checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output
 # 4.3 Checkm2
 # (can not work, maybe due to insufficient memory usage)
 cd $WORK
-micromamba activate .micromamba/envs/05_checkm2
+micromamba activate .micromamba/envs/04_checkm2
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm2
 checkm2 predict --threads 32 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
@@ -454,7 +454,7 @@ echo "---------Assembly Quality Check Completed Successfully---------"
 
 ```bash
 cd $WORK
-micromamba activate .micromamba/envs/06_prokka
+micromamba activate .micromamba/envs/05_prokka
 # Run Prokka on the file
 prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
 ```
@@ -467,7 +467,7 @@ prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes 
 echo "---------Prokka Genome Annotation Started---------"
 
 cd $WORK
-micromamba activate .micromamba/envs/06_prokka
+micromamba activate .micromamba/envs/05_prokka
 cd $WORK/genomics/3_hybrid_assembly
 # Prokka creates the output dir on its own
 prokka $WORK/genomics/3_hybrid_assembly/assembly.fasta --outdir $WORK/genomics/4_annotated_genome --kingdom Bacteria --addgenes --cpus 32
@@ -482,7 +482,7 @@ echo "---------Prokka Genome Annotation Completed Successfully---------"
 - Run GTDBTK
 
 ```bash
-micromamba activate 07_gtdbtk
+micromamba activate 06_gtdbtk
 #run gtdb
 gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir --extension .fna 
 #reduce cpu and increase the ram in bash script in order to have best performance
@@ -496,10 +496,10 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 echo "---------GTDB Classification Started---------"
 # (can not work, maybe due to insufficient memory usage increase the ram in bash script)
 cd $WORK
-micromamba activate .micromamba/envs/07_gtdbtk
+micromamba activate .micromamba/envs/06_gtdbtk
 conda env config vars set GTDBTK_DATA_PATH="$WORK/databases/gtdbtk/release220";
 cd $WORK
-micromamba activate .micromamba/envs/07_gtdbtk
+micromamba activate .micromamba/envs/06_gtdbtk
 cd $WORK/genomics/4_annotated_genome
 mkdir -p $WORK/genomics/5_gtdb_classification
 echo "---------GTDB Classification will run now---------"
