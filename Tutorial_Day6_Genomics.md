@@ -439,7 +439,7 @@ cd $WORK
 micromamba activate .micromamba/envs/04_checkm2
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm2
-checkm2 predict --threads 2 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
+checkm2 predict --threads 2 --input $WORK/genomics/3_hybrid_assembly/*.fasta --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
 micromamba deactivate
 echo "---------Assembly Quality Check Completed Successfully---------"
 ```
