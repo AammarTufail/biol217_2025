@@ -54,7 +54,9 @@ cd $WORK/genomics
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 module load micromamba/1.4.2
-micromamba activate 01_short_reads_qc
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 ``` 
 
 ## 2. Quality Control
@@ -79,7 +81,9 @@ You need to create a job script to run `fastqc` and submit the job.
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
-micromamba activate 01_short_reads_qc
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 
 
 # creata new folder for output of qc 
@@ -108,7 +112,9 @@ jobinfo
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 module load micromamba/1.4.2
-micromamba activate 01_short_reads_qc
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
@@ -142,7 +148,9 @@ jobinfo
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 module load micromamba/1.4.2
-micromamba activate 01_short_reads_qc
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 # mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
@@ -186,7 +194,9 @@ jobinfo
 module load gcc12-env/12.1.0
 module load miniconda3/4.12.0
 module load micromamba/1.4.2
-micromamba activate 01_short_reads_qc
+eval "$(micromamba shell hook --shell=bash)"
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
@@ -230,7 +240,8 @@ jobinfo
 ### 2.2.1. [NanoPlot](https://github.com/wdecoster/NanoPlot)
 
 ```bash
-micromamba activate 02_long_reads_qc
+cd $WORK
+micromamba activate .micromamba/envs/02_long_reads_qc
 
 cd $WORK/genomics/0_raw_reads/long_reads/
 NanoPlot --fastq $file -o $output_dir -t 6 --maxlength 40000 --minlength 1000 --plots kde --format png --N50 --dpi 300 --store --raw --tsv_stats --info_in_report
@@ -271,7 +282,8 @@ module load micromamba/1.4.2
 echo "---------long reads cleaning started---------"
 
 eval "$(micromamba shell hook --shell=bash)"
-micromamba activate 02_long_reads_qc
+cd $WORK
+micromamba activate .micromamba/envs/02_long_reads_qc
 
 ## 2.1 Nanoplot raw
 cd $WORK/genomics/0_raw_reads/long_reads/
