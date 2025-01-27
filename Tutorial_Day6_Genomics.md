@@ -413,6 +413,11 @@ micromamba deactivate
 ```
 </details>
 
+> In order to attach the database:
+```bash
+checkm data setRoot $WORK/databases/checkm
+```
+
 ### 4.3. [CheckM2](https://github.com/chklovski/CheckM2)
 
 
