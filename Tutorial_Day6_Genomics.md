@@ -540,7 +540,8 @@ multiqc $input_dir -o $output_dir
 <summary style="font-size: 28px; color: DarkGreen;"><b>Finished commands</b></summary>
 
 ```bash
-micromamba activate 01_short_reads_qc
+cd #WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 multiqc -d $WORK/genomics/ -o $WORK/genomics/6_multiqc
 ```
 </details>
