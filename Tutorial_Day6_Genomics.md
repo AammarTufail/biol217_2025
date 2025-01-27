@@ -450,7 +450,7 @@ echo "---------Assembly Quality Check Completed Successfully---------"
 - let's visualize the assembly using Bandage
 - Install Bandage locally on your computer from [here](https://rrwick.github.io/Bandage/)
 - Download the linux version and unzip it
-> Open Bandage and load the assembly file `assembly.gfa` from the assembly directory `$WORK/genomics/3_hybrid_assembly/006_final_clean.gfa`
+> Open Bandage and load the assembly file `assembly.gfa` from the assembly directory `$WORK/genomics/3_hybrid_assembly/assembly.gfa`
 
 ## 5. Annotate the Genomes with [`Prokka`](https://github.com/tseemann/prokka)
 
