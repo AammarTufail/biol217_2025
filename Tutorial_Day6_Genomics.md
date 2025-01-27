@@ -426,7 +426,7 @@ checkm data setRoot $WORK/databases/checkm
 ```bash
 cd $WORK
 micromamba activate .micromamba/envs/04_checkm2
-checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output_dir
+checkm2 predict --threads 2 --input $path_to/*.fasta --output-directory $output_dir
 ```
 
 <details style="background-color: black;">
@@ -439,7 +439,7 @@ cd $WORK
 micromamba activate .micromamba/envs/04_checkm2
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm2
-checkm2 predict --threads 32 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
+checkm2 predict --threads 2 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
 micromamba deactivate
 echo "---------Assembly Quality Check Completed Successfully---------"
 ```
