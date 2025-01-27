@@ -501,7 +501,7 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=32G
+#SBATCH --mem=96G
 #SBATCH --time=1:00:00
 #SBATCH --job-name=01_fastqc
 #SBATCH --output=01_fastqc.out
