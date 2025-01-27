@@ -489,7 +489,7 @@ echo "---------Prokka Genome Annotation Completed Successfully---------"
 ```bash
 micromamba activate 06_gtdbtk
 #run gtdb
-gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir --extension .fna 
+gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir --extension .fna --skip_ani_screen
 #reduce cpu and increase the ram in bash script in order to have best performance
 ```
 
@@ -506,7 +506,7 @@ conda env config vars set GTDBTK_DATA_PATH="$WORK/databases/gtdbtk/release220";
 cd $WORK/genomics/4_annotated_genome
 mkdir -p $WORK/genomics/5_gtdb_classification
 echo "---------GTDB Classification will run now---------"
-gtdbtk classify_wf --cpus 12 --genome_dir $WORK/genomics/4_annotated_genome/ --out_dir $WORK/genomics/5_gtdb_classification --extension .fna 
+gtdbtk classify_wf --cpus 12 --genome_dir $WORK/genomics/4_annotated_genome/ --out_dir $WORK/genomics/5_gtdb_classification --extension .fna --skip_ani_screen
 # reduce cpu and increase the ram in bash script in order to have best performance
 micromamba deactivate
 echo "---------GTDB Classification Completed Successfully---------"
