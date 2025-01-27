@@ -328,7 +328,8 @@ jobinfo
 ## 3. Assemble the genome using [Uniycler](https://github.com/rrwick/Unicycler)
 
 ```bash
-micromamba activate 03_unicycler
+cd $WORK
+micromamba activate .micromamba/envs/03_unicycler
 unicycler -1 $short_read1 -2 $short_read2 -l $long_reads -o $output_dir -t 32
 ```
 <details style="background-color: black;">
@@ -339,7 +340,7 @@ unicycler -1 $short_read1 -2 $short_read2 -l $long_reads -o $output_dir -t 32
 echo "---------Unicycler Assembly pipeline started---------"
 eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
-micromamba activate .micromamba/envs/02_long_reads_qc
+micromamba activate .micromamba/envs/03_unicycler
 cd $WORK/genomics
 mkdir -p $WORK/genomics/3_hybrid_assembly
 unicycler -1 $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R1_clean.fastq.gz -2 $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -l $WORK/genomics/2_long_reads_qc/2_cleaned_reads/241155E_cleaned_filtlong.fastq.gz -o $WORK/genomics/3_hybrid_assembly/ -t 32
@@ -354,7 +355,8 @@ echo "---------Unicycler Assembly pipeline Completed Successfully---------"
 
 
 ```bash
-micromamba activate 04_checkm_quast
+cd $WORK
+micromamba activate .micromamba/envs/04_checkm_quast
 
 quast.py assembly.fasta --circos -L --conserved-genes-finding --rna-finding\
      --glimmer --use-all-alignments --report-all-metrics -o $output_dir -t 16
@@ -368,7 +370,7 @@ quast.py assembly.fasta --circos -L --conserved-genes-finding --rna-finding\
 echo "---------Assembly Quality Check Started---------"
 
 ## 4.1 Quast (5 minutes)
-micromamba activate 04_checkm_quast
+micromamba activate .micromamba/envs/04_checkm_quast
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/quast
 quast.py $WORK/genomics/3_hybrid_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding \
@@ -383,7 +385,7 @@ micromamba deactivate
 
 
 ```bash
-micromamba activate 04_checkm_quast
+micromamba activate .micromamba/envs/04_checkm_quast
 # Create the output directory if it does not exist
 mkdir -p $checkm_out
 # Run CheckM for this assembly
@@ -400,7 +402,7 @@ checkm qa ./c$checkm_out/lineage.ms ./$checkm_out/ -o 2 > ./$checkm_out/final_ta
 
 ```bash
 ## 4.2 CheckM
-micromamba activate 04_checkm_quast
+micromamba activate .micromamba/envs/04_checkm_quast
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm
 checkm lineage_wf $WORK/genomics/3_hybrid_assembly/ $WORK/genomics/3_hybrid_assembly/checkm -x fasta --tab_table --file $WORK/genomics/3_hybrid_assembly/checkm/checkm_results -r -t 32
@@ -416,7 +418,8 @@ micromamba deactivate
 
 
 ```bash
-micromamba activate 05_checkm2
+cd $WORK
+micromamba activate .micromamba/envs/05_checkm2
 checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output_dir
 ```
 
@@ -426,7 +429,8 @@ checkm2 predict --threads 12 --input $path_to/*.fasta --output-directory $output
 ```bash
 # 4.3 Checkm2
 # (can not work, maybe due to insufficient memory usage)
-micromamba activate 05_checkm2
+cd $WORK
+micromamba activate .micromamba/envs/05_checkm2
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm2
 checkm2 predict --threads 32 --input $WORK/genomics/3_hybrid_assembly/* --output-directory $WORK/genomics/3_hybrid_assembly/checkm2 
@@ -449,7 +453,8 @@ echo "---------Assembly Quality Check Completed Successfully---------"
 - Prokka will create the output directory on its own, so dont create it before running it
 
 ```bash
-micromamba activate 06_prokka
+cd $WORK
+micromamba activate .micromamba/envs/06_prokka
 # Run Prokka on the file
 prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes --cpus 32
 ```
@@ -461,7 +466,8 @@ prokka $input/assembly.fasta --outdir $output_dir --kingdom Bacteria --addgenes 
 # 5 Annotate-----------------------------------------------------------
 echo "---------Prokka Genome Annotation Started---------"
 
-micromamba activate 06_prokka
+cd $WORK
+micromamba activate .micromamba/envs/06_prokka
 cd $WORK/genomics/3_hybrid_assembly
 # Prokka creates the output dir on its own
 prokka $WORK/genomics/3_hybrid_assembly/assembly.fasta --outdir $WORK/genomics/4_annotated_genome --kingdom Bacteria --addgenes --cpus 32
@@ -489,9 +495,11 @@ gtdbtk classify_wf --cpus 12 --genome_dir $input_fna_files --out_dir $output_dir
 # 6 Classification-----------------------------------------------------------
 echo "---------GTDB Classification Started---------"
 # (can not work, maybe due to insufficient memory usage increase the ram in bash script)
-micromamba activate 07_gtdbtk
+cd $WORK
+micromamba activate .micromamba/envs/07_gtdbtk
 conda env config vars set GTDBTK_DATA_PATH="$WORK/Databases/GTDBTK_day6";
-micromamba activate 07_gtdbtk
+cd $WORK
+micromamba activate .micromamba/envs/07_gtdbtk
 cd $WORK/genomics/4_annotated_genome
 mkdir -p $WORK/genomics/5_gtdb_classification
 echo "---------GTDB Classification will run now---------"
@@ -508,7 +516,8 @@ echo "---------GTDB Classification Completed Successfully---------"
 - Run MultiQC to combine all the QC reports at once at the end of the pipeline.
 
 ```bash
-micromamba activate 01_short_reads_qc
+cd $WORK
+micromamba activate .micromamba/envs/01_short_reads_qc
 # run multiqc
 multiqc $input_dir -o $output_dir
 ```
