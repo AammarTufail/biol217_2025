@@ -504,8 +504,6 @@ echo "---------GTDB Classification Started---------"
 cd $WORK
 micromamba activate .micromamba/envs/06_gtdbtk
 conda env config vars set GTDBTK_DATA_PATH="$WORK/databases/gtdbtk/release220";
-cd $WORK
-micromamba activate .micromamba/envs/06_gtdbtk
 cd $WORK/genomics/4_annotated_genome
 mkdir -p $WORK/genomics/5_gtdb_classification
 echo "---------GTDB Classification will run now---------"
