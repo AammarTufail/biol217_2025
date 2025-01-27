@@ -403,6 +403,7 @@ checkm qa ./c$checkm_out/lineage.ms ./$checkm_out/ -o 2 > ./$checkm_out/final_ta
 ```bash
 ## 4.2 CheckM
 micromamba activate .micromamba/envs/04_checkm
+checkm data setRoot $WORK/databases/checkm # Attach the database
 cd $WORK/genomics/3_hybrid_assembly
 mkdir -p $WORK/genomics/3_hybrid_assembly/checkm
 checkm lineage_wf $WORK/genomics/3_hybrid_assembly/ $WORK/genomics/3_hybrid_assembly/checkm -x fasta --tab_table --file $WORK/genomics/3_hybrid_assembly/checkm/checkm_results -r -t 32
