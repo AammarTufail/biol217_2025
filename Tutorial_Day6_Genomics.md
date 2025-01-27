@@ -454,7 +454,6 @@ echo "---------Assembly Quality Check Completed Successfully---------"
 
 ## 5. Annotate the Genomes with [`Prokka`](https://github.com/tseemann/prokka)
 
-- copy the `.fasta` files of the assembly to the Prokka directory
 - Run Prokka to annotate the genome
 - Prokka will create the output directory on its own, so dont create it before running it
 
