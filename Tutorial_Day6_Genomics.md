@@ -68,8 +68,8 @@ You need to create a job script to run `fastqc` and submit the job.
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=01_fastqc
 #SBATCH --output=01_fastqc.out
@@ -84,7 +84,7 @@ micromamba activate 01_short_reads_qc
 
 # creata new folder for output of qc 
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-for i in ./add/absolute/path/*.gz; do fastqc $i -o ./add/absolute/path/output_dir/ -t 32; done
+for i in ./add/absolute/path/*.gz; do fastqc $i -o ./add/absolute/path/output_dir/ -t 16; done
 
 micromamba deactivate
 jobinfo
@@ -96,8 +96,8 @@ jobinfo
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=01_fastqc
 #SBATCH --output=01_fastqc.out
@@ -112,7 +112,7 @@ micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 16; done
 
 micromamba deactivate
 jobinfo
@@ -130,8 +130,8 @@ jobinfo
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=01_fastqc
 #SBATCH --output=01_fastqc.out
@@ -146,7 +146,7 @@ micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 # mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-# for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+# for i in *.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 16; done
 
 ## 1.2 fastp 
 mkdir -p $WORK/genomics/1_short_reads_qc/2_cleaned_reads
@@ -174,8 +174,8 @@ jobinfo
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
 #SBATCH --time=5:00:00
 #SBATCH --job-name=01_fastqc
 #SBATCH --output=01_fastqc.out
@@ -190,7 +190,7 @@ micromamba activate 01_short_reads_qc
 
 ## 1.1 fastqc raw reads
 mkdir -p $WORK/genomics/1_short_reads_qc/1_fastqc_raw
-for i in $WORK/genomics/0_raw_reads/short_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 32; done
+for i in $WORK/genomics/0_raw_reads/short_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/1_fastqc_raw -t 16; done
 
 ## 1.2 fastp 
 mkdir -p $WORK/genomics/1_short_reads_qc/2_cleaned_reads
@@ -199,11 +199,11 @@ fastp -i $WORK/genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz \
  -R $WORK/genomics/1_short_reads_qc/2_cleaned_reads/fastp_report \
  -h $WORK/genomics/1_short_reads_qc/2_cleaned_reads/report.html \
  -o $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R1_clean.fastq.gz \
- -O $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -t 32 -q 25
+ -O $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -t 16 -q 25
 
 ## 1.3 fastqc cleaned
 mkdir -p $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned
-for i in $WORK/genomics/1_short_reads_qc/2_cleaned_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned -t 12; done
+for i in $WORK/genomics/1_short_reads_qc/2_cleaned_reads/*.gz; do fastqc $i -o $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned -t 16; done
 micromamba deactivate
 echo "---------short read cleaning completed successfully---------"
 
