@@ -50,6 +50,7 @@ This tutorial follows the workflow of the [anvi'o miniworkshop](https://merenlab
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 
@@ -87,6 +88,7 @@ ls *fasta | awk 'BEGIN{FS="_"}{print $1}' > genomes.txt
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 
@@ -131,6 +133,7 @@ done
 ```bash
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 
@@ -144,6 +147,7 @@ srun --reservation=biol217 --pty --mem=16G --nodes=1 --tasks-per-node=1 --cpus-p
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 anvi-display-contigs-stats /path/to.your/databases/*db
@@ -253,6 +257,7 @@ srun --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 
@@ -338,6 +343,7 @@ anvi-display-pan -g PROCHLORO-GENOMES.db \
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 

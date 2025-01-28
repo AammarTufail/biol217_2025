@@ -3,7 +3,7 @@ $${\color{red}DAY 8}$$
 ### 
 # RNA-Seq analysis (Transcriptomics) - Tutorial
 
-## Aim 
+## **`Aim`**
 The aim of this tuorial is to train you in:
 - Setting up RNA-Seq data analysis pipeline
 - RNA-Seq data pre-processing
@@ -12,7 +12,7 @@ The aim of this tuorial is to train you in:
 - Data Visualization
 - Functional enrichment Analysis
 
-You will: 
+**`You will:`**
 - Download the required files
 - Setting up the files in specific locations
 - Checking read quality
@@ -22,7 +22,7 @@ You will:
 - Calculate differential gene expression
 - Much more....
 
-## Tools used
+## **`Tools used`**
 | Tool        | Version | Repository                                                                        |
 |-------------|---------|-----------------------------------------------------------------------------------|
 | READemption |  2.0.3  | [link](https://reademption.readthedocs.io/en/latest/) |
@@ -30,8 +30,6 @@ You will:
 | edgeR       |   3.32  | [link](https://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) |
 | limma       |   3.46  | [link](https://bioconductor.org/packages/release/bioc/vignettes/limma/inst/doc/usersguide.pdf) |
 | R           |   4.1.0 | [link](https://cran.r-project.org/) |
-| RStudio     |   1.4.1717 | [link](https://rstudio.com/) |
-| Kallisto    |   0.48.0 |  [link](https://github.com/pachterlab/kallisto)
 
 
 <!-- > COMMENT
@@ -44,7 +42,7 @@ Tutorial taken from here, both commands and part of the explanation, mention as 
 ### **Example Run**
 
 ### 
-$${\color{Yellow}Example1}$$
+$${\color{Yellow}Example-1}$$
 ### 
 
 ## **The Dataset we will use**
@@ -76,6 +74,7 @@ specific gene sets.
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 micromamba activate $WORK/.micromamba/envs/reademption
 
 #set proxy environment to download the data and use the internet in the backend
@@ -124,17 +123,26 @@ reademption viz_deseq --project_path READemption_analysis
 micromamba deactivate
 module purge
 jobinfo
-
 ```
 
+---
+---
+# Run a complete RNA-Seq analysis pipeline for the following dataset
 
+The dataset you will use in your test comes from a publication by [*Prasse et al. 2017*](https://doi.org/10.1080/15476286.2017.1306170).
+
+---
+---
+
+<details style="background-color: black;">
+<summary style="font-size: 28px; color: DarkGreen;"><b></b></summary>
 
 ### 
 $${\color{red}Example2}$$
 ### 
 ## Dataset to be used in the example
 
-The dataset you will use today comes from a publication by [*Prasse et al. 2017*](https://doi.org/10.1080/15476286.2017.1306170).
+The dataset you will use in your test comes from a publication by [*Prasse et al. 2017*](https://doi.org/10.1080/15476286.2017.1306170).
 
 ### **How to download the data to be used for RNA_seq Analysis?**
 
@@ -148,6 +156,7 @@ The dataset you will use today comes from a publication by [*Prasse et al. 2017*
 ```bash
 #use micromamba to activate grabseq
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 micromamba activate $WORK/.micromamba/envs/10_grabseqs
 ```
 
@@ -196,6 +205,7 @@ $${\color{Green}Complete Script}$$
 # Activate the environment:
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 micromamba activate $WORK/.micromamba/envs/reademption
 
 # go to the directory you want to work in
@@ -230,6 +240,7 @@ reademption create --project_path READemption_analysis --species metanosarcina="
 
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
 micromamba activate $WORK/.micromamba/envs/reademption
 
 ## 1. create a directory for the analysis
@@ -272,7 +283,7 @@ micromamba deactivate
 module purge
 jobinfo
 ```
-
+</details>
 
 
 ---
