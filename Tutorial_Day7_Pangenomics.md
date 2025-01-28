@@ -127,8 +127,9 @@ anvi-display-contigs-stats /path/to.your/databases/*db
 srun --reservation=biol217 --pty --mem=16G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate anvio-8_biol217
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
 anvi-display-contigs-stats /path/to.your/databases/*db
 ```
 
