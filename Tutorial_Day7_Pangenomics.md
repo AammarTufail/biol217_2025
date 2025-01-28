@@ -401,7 +401,7 @@ anvi-estimate-genome-completeness -e external-genomes.txt
 anvi-gen-genomes-storage -e external-genomes.txt \
                          -o ${name}-GENOMES.db
 
-anvi-pan-genome -g others-GENOMES.db \
+anvi-pan-genome -g bacteroides-GENOMES.db \
                 --project-name ${name} \
                 --num-threads 12
 
