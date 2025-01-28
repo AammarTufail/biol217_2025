@@ -152,6 +152,7 @@ cd $WORK
 micromamba activate .micromamba/envs/00_anvio/
 anvi-display-contigs-stats /path/to.your/databases/*db
 ```
+> **Note:** If the terminal does not open a browser, you can try to use the srun command otherwise ifnore the `srun`.
 
 > **In a new terminal (update the node `n100` to actually used one)**
 
