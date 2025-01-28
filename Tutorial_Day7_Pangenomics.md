@@ -196,6 +196,7 @@ anvi-profile -c V_jascida_52.db \
 Now to display run this command directly in the terminal
 * create bin V_jascida_52_CLEAN and store it as default
 
+> **Note:** If the terminal does not open a browser, you can try to use the srun command otherwise ifnore the `srun`.
 
 ```bash
 srun --pty --mem=10G --nodes=1 --tasks-per-node=1 --cpus-per-task=1 --partition=base /bin/bash
