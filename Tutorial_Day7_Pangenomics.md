@@ -17,6 +17,8 @@ $${\color{red}DAY 7}$$
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
+  - [**One Script for Everything**](#one-script-for-everything)
+  - [Change the code for display](#change-the-code-for-display)
  
 
 ## Aim
@@ -315,3 +317,129 @@ anvi-display-pan -g PROCHLORO-GENOMES.db \
 ``` -->
 
 ---
+
+
+## **One Script for Everything**
+
+> 1. Create a folder
+> 2. Put all the genomes in the folder after downloading .fna files
+> 3. Run the following script
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --time=2:00:00
+#SBATCH --job-name=anvio_pangenomics
+#SBATCH --output=anvio_pangenomics.out
+#SBATCH --error=anvio_pangenomics.err
+#SBATCH --partition=base
+#SBATCH --reservation=biol217
+
+
+module load gcc12-env/12.1.0
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
+
+# go to your folder where you have all the genomes
+cd /path/to/your/genomes
+
+#1- rename files
+for file in *.fna; do mv "$file" "${file%.fna}.fasta"; done
+
+#2- Fast files to contigs DBs
+#put genome into text file to make for loop
+ls *fasta | awk 'BEGIN{FS="."}{print $1}' > genomes.txt
+# reformat fasta files
+for g in `cat genomes.txt`
+do
+    echo
+    echo "Working on $g ..."
+    echo
+    anvi-script-reformat-fasta ${g}.fasta \
+                               --min-len 2500 \
+                               --simplify-names \
+                               -o ${g}_2.5K.fasta
+done
+
+# Get the number of CPU cores
+threads=12
+name="bacteroides"
+
+#convert into contigs dbs
+for g in `cat genomes.txt`
+do
+    echo
+    echo "Working on $g ..." 
+    echo
+    anvi-gen-contigs-database -f ${g}_2.5K.fasta \
+                              -o ${name}_${g}.db \
+                              --num-threads $threads \
+                              -n ${name}_${g}
+done
+
+
+#3- annotating contigs db
+for g in *.db
+do
+    anvi-run-hmms -c $g --num-threads $threads
+    anvi-run-ncbi-cogs -c $g --num-threads $threads
+    anvi-scan-trnas -c $g --num-threads $threads
+    anvi-run-scg-taxonomy -c $g --num-threads $threads
+done
+
+
+#4- creating an external genome file
+anvi-script-gen-genomes-file --input-dir . \
+                             -o external-genomes.txt
+
+#5- Estimating contamination
+anvi-estimate-genome-completeness -e external-genomes.txt
+# check if refinement needed or turn off this
+
+#6- computing a pangenome
+anvi-gen-genomes-storage -e external-genomes.txt \
+                         -o ${name}-GENOMES.db
+
+anvi-pan-genome -g others-GENOMES.db \
+                --project-name ${name} \
+                --num-threads $threads
+
+#7- calculating average nucleotide identity ANI
+anvi-compute-genome-similarity --external-genomes external-genomes.txt \
+                               --program pyANI \
+                               --output-dir ANI \
+                               --num-threads $threads \
+                               --pan-db ${name}/${name}-PAN.db 
+
+
+#8- phylogenomic tree
+anvi-get-sequences-for-gene-clusters -p ${name}/${name}-PAN.db \
+                                     -g ${name}/${name}-GENOMES.db \
+                                     --min-num-genomes-gene-cluster-occurs 31 \
+                                     --max-num-genes-from-each-genome 1 \
+                                     --concatenate-gene-clusters \
+                                     --output-file ${name}/${name}-SCGs.fa
+
+trimal -in ${name}/${name}-SCGs.fa \
+         -out ${name}/${name}-SCGs-clean.fa \
+         -gt 0.5
+
+iqtree -s ${name}/${name}-SCGs-clean.fa \
+       -m WAG \
+       -bb 1000 \
+       -nt $threads
+```
+
+
+## Change the code for display
+
+```bash
+# run on front end
+anvi-display-pan -p Bacteroides/Bacteroides-PAN.db \
+                    -g Bacteroides-GENOMES.db
+```
+
+> If it doe's not work, you can try to use srun command given above.
