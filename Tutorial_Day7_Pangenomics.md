@@ -415,7 +415,7 @@ anvi-compute-genome-similarity --external-genomes external-genomes.txt \
 
 #8- phylogenomic tree
 anvi-get-sequences-for-gene-clusters -p ${name}/${name}-PAN.db \
-                                     -g ${name}/${name}-GENOMES.db \
+                                     -g ${name}-GENOMES.db \
                                      --min-num-genomes-gene-cluster-occurs 31 \
                                      --max-num-genes-from-each-genome 1 \
                                      --concatenate-gene-clusters \
