@@ -11,9 +11,6 @@ $${\color{red}DAY 7}$$
   - [3. Create `contigs.dbs` from `.fasta` files](#3-create-contigsdbs-from-fasta-files)
   - [4. Visualize `contigs.db`](#4-visualize-contigsdb)
   - [5. Create external genomes file](#5-create-external-genomes-file)
-  - [6. Investigate contamination](#6-investigate-contamination)
-  - [7. Visualise contigs for refinement](#7-visualise-contigs-for-refinement)
-  - [8. Splitting the genome in our good bins](#8-splitting-the-genome-in-our-good-bins)
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
@@ -174,7 +171,7 @@ anvi-script-gen-genomes-file --input-dir /path/to/input/dir \
                              -o external-genomes.txt
 ```
 
-## 6. Investigate contamination
+<!-- ## 6. Investigate contamination
 
 * Directly in the terminal
 * To see if all look similar
@@ -233,17 +230,16 @@ anvi-split -p V_jascida_52/PROFILE.db \
 #V_jascida_52_SPLIT/V_jascida_52_CLEAN/CONTIGS.db
 
 sed 's/V_jascida_52.db/V_jascida_52_SPLIT\/V_jascida_52_CLEAN\/CONTIGS.db/g' external-genomes.txt > external-genomes-final.txt
-```
+``` -->
 ## 9. Estimate completeness of split vs. unsplit genome:
 
 ```bash
 anvi-estimate-genome-completeness -e external-genomes.txt
-anvi-estimate-genome-completeness -e external-genomes-final.txt
 ```
 ## 10. Compute pangenome
 
 ```bash
-anvi-gen-genomes-storage -e external-genomes-final.txt \
+anvi-gen-genomes-storage -e external-genomes.txt \
                          -o V_jascida-GENOMES.db
 
 anvi-pan-genome -g V_jascida-GENOMES.db \
