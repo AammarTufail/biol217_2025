@@ -74,7 +74,26 @@ ls V_jascida_genomes
 cd $WORK/pangenomics_test/V_jascida_genomes/
 
 ls *fasta | awk 'BEGIN{FS="_"}{print $1}' > genomes.txt
+```
 
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --time=2:00:00
+#SBATCH --job-name=anvio_pangenomics
+#SBATCH --output=anvio_pangenomics.out
+#SBATCH --error=anvio_pangenomics.err
+#SBATCH --partition=base
+#SBATCH --reservation=biol217
+
+module load gcc12-env/12.1.0
+module load micromamba/1.4.2
+cd $WORK
+micromamba activate .micromamba/envs/00_anvio/
+
+cd ./path/to/your/genomes
 # remove all contigs <2500 nt
 for g in `cat genomes.txt`
 do
