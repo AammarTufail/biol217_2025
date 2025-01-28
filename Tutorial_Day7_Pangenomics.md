@@ -125,7 +125,7 @@ do
     anvi-run-hmms -c $g --num-threads 4
     anvi-run-ncbi-cogs -c $g --num-threads 4
     anvi-scan-trnas -c $g --num-threads 4
-    anvi-run-scg-taxyonomy -c $g --num-threads 4
+    anvi-run-scg-taxonomy -c $g --num-threads 4
 done
 ``` 
 
