@@ -362,8 +362,8 @@ do
                                -o ${g}_2.5K.fasta
 done
 
-# Get the number of CPU cores
-threads=12
+
+
 name="bacteroides"
 
 #convert into contigs dbs
@@ -374,7 +374,7 @@ do
     echo
     anvi-gen-contigs-database -f ${g}_2.5K.fasta \
                               -o ${name}_${g}.db \
-                              --num-threads $threads \
+                              --num-threads 12 \
                               -n ${name}_${g}
 done
 
@@ -382,10 +382,10 @@ done
 #3- annotating contigs db
 for g in *.db
 do
-    anvi-run-hmms -c $g --num-threads $threads
-    anvi-run-ncbi-cogs -c $g --num-threads $threads
-    anvi-scan-trnas -c $g --num-threads $threads
-    anvi-run-scg-taxonomy -c $g --num-threads $threads
+    anvi-run-hmms -c $g --num-threads 12
+    anvi-run-ncbi-cogs -c $g --num-threads 12
+    anvi-scan-trnas -c $g --num-threads 12
+    anvi-run-scg-taxonomy -c $g --num-threads 12
 done
 
 
@@ -403,13 +403,13 @@ anvi-gen-genomes-storage -e external-genomes.txt \
 
 anvi-pan-genome -g others-GENOMES.db \
                 --project-name ${name} \
-                --num-threads $threads
+                --num-threads 12
 
 #7- calculating average nucleotide identity ANI
 anvi-compute-genome-similarity --external-genomes external-genomes.txt \
                                --program pyANI \
                                --output-dir ANI \
-                               --num-threads $threads \
+                               --num-threads 12 \
                                --pan-db ${name}/${name}-PAN.db 
 
 
