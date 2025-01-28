@@ -11,7 +11,6 @@ $${\color{red}DAY 7}$$
   - [3. Create `contigs.dbs` from `.fasta` files](#3-create-contigsdbs-from-fasta-files)
   - [4. Visualize `contigs.db`](#4-visualize-contigsdb)
   - [5. Create external genomes file](#5-create-external-genomes-file)
-  - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
   - [**One Script for Everything**](#one-script-for-everything)
@@ -230,12 +229,13 @@ anvi-split -p V_jascida_52/PROFILE.db \
 #V_jascida_52_SPLIT/V_jascida_52_CLEAN/CONTIGS.db
 
 sed 's/V_jascida_52.db/V_jascida_52_SPLIT\/V_jascida_52_CLEAN\/CONTIGS.db/g' external-genomes.txt > external-genomes-final.txt
-``` -->
+``` 
 ## 9. Estimate completeness of split vs. unsplit genome:
 
 ```bash
 anvi-estimate-genome-completeness -e external-genomes.txt
-```
+``` 
+-->
 ## 10. Compute pangenome
 
 ```bash
