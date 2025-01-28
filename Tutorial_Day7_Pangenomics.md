@@ -18,7 +18,7 @@ $${\color{red}DAY 7}$$
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
   - [**One Script for Everything**](#one-script-for-everything)
-  - [Change the code for display](#change-the-code-for-display)
+    - [Change the code for display](#change-the-code-for-display)
  
 
 ## Aim
@@ -434,7 +434,7 @@ iqtree -s ${name}/${name}-SCGs-clean.fa \
 ```
 
 
-## Change the code for display
+### Change the code for display
 
 ```bash
 # run on front end
