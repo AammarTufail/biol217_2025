@@ -404,6 +404,13 @@ anvi-gen-genomes-storage -e external-genomes.txt \
 anvi-pan-genome -g ${name}-GENOMES.db \
                 --project-name ${name} \
                 --num-threads 12
+############################################################################################################
+# Display your pangenome directly here if you want to look into it
+anvi-display-pan -p bacteroides/Bacteroides-PAN.db \
+                    -g bacteroides-GENOMES.db
+
+############################################################################################################
+
 
 #7- calculating average nucleotide identity ANI
 anvi-compute-genome-similarity --external-genomes external-genomes.txt \
