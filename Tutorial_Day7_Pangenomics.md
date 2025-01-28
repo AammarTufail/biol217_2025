@@ -406,7 +406,7 @@ anvi-pan-genome -g ${name}-GENOMES.db \
                 --num-threads 12
 ############################################################################################################
 # Display your pangenome directly here if you want to look into it
-anvi-display-pan -p bacteroides/Bacteroides-PAN.db \
+anvi-display-pan -p bacteroides/bacteroides-PAN.db \
                     -g bacteroides-GENOMES.db
 
 ############################################################################################################
@@ -443,8 +443,8 @@ iqtree -s ${name}/${name}-SCGs-clean.fa \
 
 ```bash
 # run on front end
-anvi-display-pan -p Bacteroides/Bacteroides-PAN.db \
-                    -g Bacteroides-GENOMES.db
+anvi-display-pan -p bacteroides/bacteroides-PAN.db \
+                    -g bacteroides-GENOMES.db
 ```
 
 > If it doe's not work, you can try to use srun command given above.

@@ -64,24 +64,25 @@ specific gene sets.
 ```bash
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=64G
-#SBATCH --time=0-04:00:00
-#SBATCH --job-name=reademption_tutorial
-#SBATCH --output=reademption_tutorial.out
-#SBATCH --error=reademption_tutorial.err
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --time=2:00:00
+#SBATCH --job-name=reademption
+#SBATCH --output=reademption.out
+#SBATCH --error=reademption.err
 #SBATCH --partition=base
 #SBATCH --reservation=biol217
 
+
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
+module load micromamba/1.4.2
+micromamba activate $WORK/.micromamba/envs/reademption
 
 #set proxy environment to download the data and use the internet in the backend
 export http_proxy=http://relay:3128
 export https_proxy=http://relay:3128
 export ftp_proxy=http://relay:3128
 
-conda activate reademption
 # create folders
 reademption create --project_path READemption_analysis --species salmonella="Salmonella Typhimurium"
 
@@ -120,7 +121,7 @@ reademption deseq -l InSPI2_R1.fa.bz2,InSPI2_R2.fa.bz2,LSP_R1.fa.bz2,LSP_R2.fa.b
 reademption viz_align --project_path READemption_analysis
 reademption viz_gene_quanti --project_path READemption_analysis
 reademption viz_deseq --project_path READemption_analysis
-conda deactivate
+micromamba deactivate
 module purge
 jobinfo
 
@@ -147,7 +148,7 @@ The dataset you will use today comes from a publication by [*Prasse et al. 2017*
 ```bash
 #use micromamba to activate grabseq
 module load micromamba/1.4.2
-micromamba activate 10_grabseqs
+micromamba activate $WORK/.micromamba/envs/10_grabseqs
 ```
 
 2. Download the data specifying the SRA:
@@ -194,8 +195,8 @@ $${\color{Green}Complete Script}$$
 ```bash
 # Activate the environment:
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate reademption
+module load micromamba/1.4.2
+micromamba activate $WORK/.micromamba/envs/reademption
 
 # go to the directory you want to work in
 cd $WORK/RNAseq
@@ -228,8 +229,8 @@ reademption create --project_path READemption_analysis --species metanosarcina="
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate reademption
+module load micromamba/1.4.2
+micromamba activate $WORK/.micromamba/envs/reademption
 
 ## 1. create a directory for the analysis
 # reademption create --project_path READemption_analysis \
@@ -267,7 +268,7 @@ reademption viz_gene_quanti --project_path READemption_analysis
 reademption viz_deseq --project_path READemption_analysis
 
 # The whole command will take around 2 hours to run.
-conda deactivate
+micromamba deactivate
 module purge
 jobinfo
 ```
