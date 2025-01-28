@@ -17,7 +17,6 @@ $${\color{red}DAY 7}$$
   - [9. Estimate completeness of split vs. unsplit genome:](#9-estimate-completeness-of-split-vs-unsplit-genome)
   - [10. Compute pangenome](#10-compute-pangenome)
   - [11. Display the pangenome](#11-display-the-pangenome)
-  - [12. Computing Phylogenomics for your pangenome](#12-computing-phylogenomics-for-your-pangenome)
  
 
 ## Aim
@@ -270,7 +269,7 @@ ssh -L 8080:localhost:8080 n100
 
 click: http://127.0.0.1:8060/
 ```
-
+<!-- 
 ## 12. Computing Phylogenomics for your pangenome
 
 > **`Note`: Please be carefull with the paths and names you use in this script**
@@ -313,6 +312,6 @@ anvi-import-misc-data -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
 ```bash
 anvi-display-pan -g PROCHLORO-GENOMES.db \
                  -p PROCHLORO/Prochlorococcus_Pan-PAN.db
-```
+``` -->
 
 ---
