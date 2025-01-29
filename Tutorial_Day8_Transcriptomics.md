@@ -147,7 +147,8 @@ The dataset you will use in your test comes from a publication by [*Prasse et al
 ### **How to download the data to be used for RNA_seq Analysis?**
 
 > 1. Find the accession number of the data you want to download, mentioned in the published paper.
-> 2. Go to the NCBI website and search for the accession number.
+> 2. Go to the NCBI website and search for the accession number. 
+> or `otherwise`
 > 3. Download the data from SRA database.
 > 4. Find the `SRR numbers` of the data you want to download. and run the following commands:
 
