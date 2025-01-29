@@ -286,6 +286,8 @@ jobinfo
 </details>
 
 
+# Learn R programming from [here link](https://diytranscriptomics.com/learnr/).
+
 ---
 
 
