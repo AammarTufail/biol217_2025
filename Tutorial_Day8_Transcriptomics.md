@@ -75,7 +75,7 @@ specific gene sets.
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
 eval "$(micromamba shell hook --shell=bash)"
-micromamba activate $WORK/.micromamba/envs/reademption
+micromamba activate $WORK/.micromamba/envs/08_reademption
 
 #set proxy environment to download the data and use the internet in the backend
 export http_proxy=http://relay:3128
