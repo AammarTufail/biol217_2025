@@ -207,10 +207,10 @@ $${\color{Green}Complete Script}$$
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
 eval "$(micromamba shell hook --shell=bash)"
-micromamba activate $WORK/.micromamba/envs/reademption
+micromamba activate $WORK/.micromamba/envs/08_reademption
 
 # go to the directory you want to work in
-cd $WORK/RNAseq
+cd $WORK/rnaseq
 
 # create folders
 reademption create --project_path READemption_analysis --species metanosarcina="Methanosarcina mazei Gö1"
@@ -242,7 +242,7 @@ reademption create --project_path READemption_analysis --species metanosarcina="
 module load gcc12-env/12.1.0
 module load micromamba/1.4.2
 eval "$(micromamba shell hook --shell=bash)"
-micromamba activate $WORK/.micromamba/envs/reademption
+micromamba activate $WORK/.micromamba/envs/08_reademption
 
 ## 1. create a directory for the analysis
 # reademption create --project_path READemption_analysis \
