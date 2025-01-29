@@ -10,8 +10,9 @@
 #SBATCH --reservation=biol217
 
 module load gcc12-env/12.1.0
-module load miniconda3/4.12.0
-conda activate reademption
+module load micromamba/1.4.2
+eval "$(micromamba shell hook --shell=bash)"
+micromamba activate $WORK/.micromamba/envs/08_reademption
 
 ## 1. create a directory for the analysis
 # reademption create --project_path READemption_analysis \
