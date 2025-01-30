@@ -146,7 +146,8 @@ grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged
 
 * **What are typical annotations you see? What could the functions be?  
 
-* **Now look for the category of “moron, auxiliary metabolic gene and host takeover” any toxin genes???? Quickly look up the function of this toxin (hint, vibrio phage and vibrio cholerae host)
+* **Now look for the category of “moron, auxiliary metabolic gene and host takeover” any toxin genes????
+* this does not have to be your virus.  Quickly look up the function of this toxin (hint, vibrio phage and vibrio cholerae host)
 
 *Now let’s look at the binning results. Look at 07_BINNING/07C_vBINS_READ_MAPPING/ and find table `MVP_07_Merged_vRhyme_Outputs_Unfiltered_best_vBins_Memberships_geNomad_CheckV_Summary_read_mapping_information_RPKM_Table.tsv`
 
