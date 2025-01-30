@@ -128,7 +128,7 @@ grep -c "Caudoviricetes" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Mer
 <details><summary><b>Finished commands</b></summary>
   
 ```ssh
-grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv
+grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv
 ```
 </details>
 
