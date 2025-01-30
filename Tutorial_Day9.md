@@ -154,7 +154,7 @@ grep -c "Low-quality" 02_CHECK_V/BGR_***/MVP_02_BGR_***/_Filtered_Relaxed_Merged
 
 ## Questions
 
-* **How many High-quality viruses after binning? (hint: look carefully at the table, it has duplicate entries for bins)
+* **How many High-quality viruses after binning? (hint: look carefully at the table)
 * **Are any of the identified viral contigs complete circular genomes (based on identifying direct terminal repeat regions on both ends of the genome)?
 
 
