@@ -26,7 +26,7 @@ To visualize contig graph in **Bandage**, the first step is to convert the fasta
 
 Example:
 ```
-megahit_toolkit contig2fastg final.contigs.fa > final.contigs.fastg                   
+megahit_toolkit contig2fastg 99 final.contigs.fa > final.contigs.fastg                                   
 ```
 Then the FASTG file fasta.fastg can be loaded into **Bandage**.
 
