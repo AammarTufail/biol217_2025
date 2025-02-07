@@ -258,6 +258,8 @@ fastp -i sample1_R1.fastq.gz -I sample1_R2.fastq.gz -R fastp_report -o sample1_R
 
 The first step is to use your [fastp](https://github.com/OpenGene/fastp) processed data and perform genome assemblies using [megahit](https://github.com/voutcn/megahit ), an ultra-fast and memory-efficient NGS assembler. It is optimized for metagenomes coassembly, multiple samples:
 
+!!!!!!!!  do not create output folder before
+
 ```ssh
 cd /PATH/TO/CLEAN/READS
                                        
@@ -265,6 +267,8 @@ megahit -1 ? -1 ? -1 ? -2 ? -2 ? -2 ? --min-contig-len 1000 --presets meta-large
 ```
 
 <details><summary><b>Finished commands</b></summary>
+
+!!!!!!!!  do not create output folder before
 
 ```ssh
 megahit -1 sample1_R1_clean.fastq.gz -1 sample2_R1_clean.fastq.gz -1 sample3_R1_clean.fastq.gz -2 sample1_R2_clean.fastq.gz -2 sample2_R2_clean.fastq.gz -2 sample3_R2_clean.fastq.gz --min-contig-len 1000 --presets meta-large -m 0.85 -o /PATH/TO/3_coassembly/ -t 12   
