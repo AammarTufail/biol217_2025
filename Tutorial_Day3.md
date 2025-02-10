@@ -256,7 +256,7 @@ or in a loop:
 
 for i in *.sorted.bam; do
   base="${i%.sam.bam.sorted.bam}"
-  anvi-profile -i "$i" -c contigs.db -o ${base}
+  anvi-profile -i "$i" -c contigs.db --output-dir ${base}
 done
 
 ```
