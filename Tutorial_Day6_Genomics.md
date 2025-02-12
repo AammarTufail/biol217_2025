@@ -208,8 +208,8 @@ fastp -i $WORK/genomics/0_raw_reads/short_reads/241155E_R1.fastq.gz \
  -I $WORK/genomics/0_raw_reads/short_reads/241155E_R2.fastq.gz \
  -R $WORK/genomics/1_short_reads_qc/2_cleaned_reads/fastp_report \
  -h $WORK/genomics/1_short_reads_qc/2_cleaned_reads/report.html \
- -o $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R1_clean.fastq.gz \
- -O $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz -t 16 -q 25
+ -o $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R1_clean.fastq.gz --trim_front1 20 -q 25 \
+ -O $WORK/genomics/1_short_reads_qc/2_cleaned_reads/241155E_R2_clean.fastq.gz --trim_front2 20 -q 25 
 
 ## 1.3 fastqc cleaned
 mkdir -p $WORK/genomics/1_short_reads_qc/3_fastqc_cleaned
